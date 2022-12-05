@@ -16,7 +16,6 @@ public class Driver {
                 Model model = new Model(0);
                 View view = new View("0");
                 Controller controller = new Controller(model, view);
-                controller.control();
             }
         });
     }

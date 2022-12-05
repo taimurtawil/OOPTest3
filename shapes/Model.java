@@ -2,12 +2,11 @@ package shapes;
 
 import java.awt.*;
 
+import javax.swing.Icon;
+
 public class Model {
     private int value;
-    private String shapeString;
-    private String colorString;
-    private int width;
-    private int height;
+    private Icon shape;
     private Color color;
 
     public Model(int value) {
@@ -22,44 +21,50 @@ public class Model {
         this.value = value;
     }
 
-    public String getShapeString() {
-        return shapeString;
+    public Icon getShape() {
+        return shape;
     }
 
-    public void setShapeString(String shapeString) {
-        this.shapeString = shapeString;
+    public void setShape(String shapeString, int wh) {
+        switch (shapeString) {
+            case "Rectangle":
+                Rectangle rec = new Rectangle(wh, wh, color);
+                this.shape = rec;
+                break;
+            case "Triangle":
+                Triangle tri = new Triangle(wh, wh, color);
+                this.shape = tri;
+                break;
+            case "Circle":
+                Circle cir = new Circle(wh, wh, color);
+                this.shape = cir;
+            default:
+                break;
+        }
+
     }
 
-    public String getColorString() {
-        return colorString;
-    }
-
-    public void setColorString(String colorString) {
-        this.colorString = colorString;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public Color getColor() {
+    public Color getColorString() {
         return color;
     }
 
-    public void setColor(Color color) {
-        this.color = color;
+    public void setColor(String color, String shapeString, int wh) {
+        switch (color) {
+            case "Red":
+                this.color = Color.RED;
+                setShape(shapeString, wh);
+                break;
+            case "Blue":
+                this.color = Color.BLUE;
+                setShape(shapeString, wh);
+                break;
+            case "Yellow":
+                this.color = Color.YELLOW;
+                setShape(shapeString, wh);
+                break;
+            default:
+                break;
+        }
     }
 
 }

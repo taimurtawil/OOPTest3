@@ -23,10 +23,13 @@ public class Triangle implements Icon {
         return height;
     }
 
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
     public void paintIcon(Component c, Graphics g, int x, int y) {
         Graphics2D g2 = (Graphics2D) g;
         TriangleShape triangle = new TriangleShape(x, y, width, height);
-
         g2.setColor(color);
         g2.fill(triangle);
 
@@ -35,9 +38,9 @@ public class Triangle implements Icon {
 
 class TriangleShape extends Path2D.Double {
     public TriangleShape(int x, int y, int width, int height) {
-        moveTo(x, y);
-        lineTo(x + width, y);
-        lineTo(x + width / 2, y + height);
+        moveTo(x, y + height);
+        lineTo(x + width, y + height);
+        lineTo(x + width / 2, y);
         closePath();
     }
 }

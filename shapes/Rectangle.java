@@ -23,11 +23,15 @@ public class Rectangle implements Icon {
         return height;
     }
 
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
     public void paintIcon(Component c, Graphics g, int x, int y) {
         Graphics2D g2 = (Graphics2D) g;
         Rectangle2D.Double rectangle = new Rectangle2D.Double(x, y, width, height);
 
-        g2.setColor(Color.RED);
+        g2.setColor(color);
         g2.fill(rectangle);
 
     }

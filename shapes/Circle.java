@@ -32,11 +32,15 @@ public class Circle implements Icon {
         this.width = wh;
     }
 
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
     public void paintIcon(Component c, Graphics g, int x, int y) {
         Graphics2D g2 = (Graphics2D) g;
         Ellipse2D.Double ellipse = new Ellipse2D.Double(x, y, width, height);
 
-        g2.setColor(Color.RED);
+        g2.setColor(color);
         g2.fill(ellipse);
 
     }
